@@ -17,7 +17,7 @@ import com.sun.istack.NotNull;
 @Table(name = "roles")
 public class Role {	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private Integer  id;
 	public Role(Integer  id) {

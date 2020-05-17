@@ -20,9 +20,11 @@ public class User{
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 //	@Column(name="id")
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.TABLE)
 //	@Column(name="user_id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 
