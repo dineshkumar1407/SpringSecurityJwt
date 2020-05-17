@@ -17,11 +17,11 @@ import com.sun.istack.NotNull;
 @Table(name = "roles")
 public class Role {	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	
-	private Long id;
-	public Role(Long id) {
-		super();
+	private Integer  id;
+	public Role(Integer  id) {
+//		super();
 		this.id = id;
 	}
 
@@ -37,11 +37,11 @@ public class Role {
 		this.name = name;
 	}
 
-	public Long getId() {
+	public Integer  getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer  id) {
 		this.id = id;
 	}
 

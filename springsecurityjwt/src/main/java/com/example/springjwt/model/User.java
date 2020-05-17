@@ -8,6 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.CascadeType;
+
 
 @Entity
 @Table(name="users",uniqueConstraints = { 
@@ -19,12 +21,13 @@ public class User{
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 //	@Column(name="id")
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.TABLE)
+//	@Column(name="user_id")
 	private Long id;
 	
 
 	public User(Long id) {
-		super();
+//		super();
 		this.id = id;
 	}
 
@@ -36,7 +39,7 @@ public class User{
 	@NotBlank
 	@Size(max = 50)
 	@Email
-	@Column(name="Email")
+	@Column(name="email")
 	private String email;
 
 	@NotBlank
@@ -45,6 +48,7 @@ public class User{
 	private String password;
 
 	@ManyToMany(fetch = FetchType.LAZY)
+//	@ManyToMany(targetEntity =Role.class ,cascade = {javax.persistence.CascadeType.ALL})
 	@JoinTable(	name = "user_roles", 
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
